@@ -1,15 +1,30 @@
 package com.algaworks.algafood.util;
+<<<<<<< HEAD
+=======
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.sql.DataSource;
+>>>>>>> a1905c0c77da4ea241fee2cea01d0cab7cfadcc6
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+<<<<<<< HEAD
 import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+=======
+>>>>>>> a1905c0c77da4ea241fee2cea01d0cab7cfadcc6
 @Component
 public class DatabaseCleaner {
 

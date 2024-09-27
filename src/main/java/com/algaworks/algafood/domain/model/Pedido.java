@@ -1,6 +1,7 @@
 package com.algaworks.algafood.domain.model;
 
 import java.math.BigDecimal;
+<<<<<<< HEAD
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,22 +27,47 @@ import org.springframework.data.domain.AbstractAggregateRoot;
 import com.algaworks.algafood.domain.event.PedidoCanceladoEvent;
 import com.algaworks.algafood.domain.event.PedidoConfirmadoEvent;
 import com.algaworks.algafood.domain.exception.NegocioException;
+=======
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.CreationTimestamp;
+>>>>>>> a1905c0c77da4ea241fee2cea01d0cab7cfadcc6
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Data
+<<<<<<< HEAD
 @EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = false)
 @Entity
 public class Pedido extends AbstractAggregateRoot<Pedido> {
+=======
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@Entity
+public class Pedido {
+>>>>>>> a1905c0c77da4ea241fee2cea01d0cab7cfadcc6
 
 	@EqualsAndHashCode.Include
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+<<<<<<< HEAD
 	private String codigo;
 	
+=======
+>>>>>>> a1905c0c77da4ea241fee2cea01d0cab7cfadcc6
 	private BigDecimal subtotal;
 	private BigDecimal taxaFrete;
 	private BigDecimal valorTotal;
@@ -49,6 +75,7 @@ public class Pedido extends AbstractAggregateRoot<Pedido> {
 	@Embedded
 	private Endereco enderecoEntrega;
 	
+<<<<<<< HEAD
 	@Enumerated(EnumType.STRING)
 	private StatusPedido status = StatusPedido.CRIADO;
 	
@@ -60,6 +87,18 @@ public class Pedido extends AbstractAggregateRoot<Pedido> {
 	private OffsetDateTime dataEntrega;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
+=======
+	private StatusPedido status;
+	
+	@CreationTimestamp
+	private LocalDateTime dataCriacao;
+
+	private LocalDateTime dataConfirmacao;
+	private LocalDateTime dataCancelamento;
+	private LocalDateTime dataEntrega;
+	
+	@ManyToOne
+>>>>>>> a1905c0c77da4ea241fee2cea01d0cab7cfadcc6
 	@JoinColumn(nullable = false)
 	private FormaPagamento formaPagamento;
 	
@@ -71,6 +110,7 @@ public class Pedido extends AbstractAggregateRoot<Pedido> {
 	@JoinColumn(name = "usuario_cliente_id", nullable = false)
 	private Usuario cliente;
 	
+<<<<<<< HEAD
 	@OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
 	private List<ItemPedido> itens = new ArrayList<>();
 
@@ -131,4 +171,9 @@ public class Pedido extends AbstractAggregateRoot<Pedido> {
 		setCodigo(UUID.randomUUID().toString());
 	}
 	
+=======
+	@OneToMany(mappedBy = "pedido")
+	private List<ItemPedido> itens = new ArrayList<>();
+
+>>>>>>> a1905c0c77da4ea241fee2cea01d0cab7cfadcc6
 }

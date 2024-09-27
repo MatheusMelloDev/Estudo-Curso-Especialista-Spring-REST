@@ -1,5 +1,6 @@
 package com.algaworks.algafood.api.exceptionhandler;
 
+<<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -49,4 +50,37 @@ public class Problem {
 
 	}
 
+=======
+import java.time.LocalDateTime;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
+import lombok.Builder;
+import lombok.Getter;
+
+@JsonInclude(Include.NON_NULL)
+@Getter
+@Builder
+public class Problem {
+
+	private Integer status;
+	private LocalDateTime timestamp;
+	private String type;
+	private String title;
+	private String detail;
+	private String userMessage;
+	private List<Object> objects;
+	
+	@Getter
+	@Builder
+	public static class Object {
+		
+		private String name;
+		private String userMessage;
+		
+	}
+	
+>>>>>>> a1905c0c77da4ea241fee2cea01d0cab7cfadcc6
 }

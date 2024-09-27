@@ -1,5 +1,6 @@
 package com.algaworks.algafood;
 
+<<<<<<< HEAD
 import com.algaworks.algafood.domain.model.Cozinha;
 import com.algaworks.algafood.domain.repository.CozinhaRepository;
 import com.algaworks.algafood.util.DatabaseCleaner;
@@ -16,11 +17,35 @@ import org.springframework.http.HttpStatus;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+=======
+>>>>>>> a1905c0c77da4ea241fee2cea01d0cab7cfadcc6
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
 
+<<<<<<< HEAD
 @ExtendWith(SpringExtension.class)
+=======
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.http.HttpStatus;
+import org.springframework.test.context.TestPropertySource;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import com.algaworks.algafood.domain.model.Cozinha;
+import com.algaworks.algafood.domain.repository.CozinhaRepository;
+import com.algaworks.algafood.util.DatabaseCleaner;
+import com.algaworks.algafood.util.ResourceUtils;
+
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
+
+@RunWith(SpringRunner.class)
+>>>>>>> a1905c0c77da4ea241fee2cea01d0cab7cfadcc6
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestPropertySource("/application-test.properties")
 public class CadastroCozinhaIT {
@@ -40,7 +65,11 @@ public class CadastroCozinhaIT {
 	private int quantidadeCozinhasCadastradas;
 	private String jsonCorretoCozinhaChinesa;
 	
+<<<<<<< HEAD
 	@BeforeEach
+=======
+	@Before
+>>>>>>> a1905c0c77da4ea241fee2cea01d0cab7cfadcc6
 	public void setUp() {
 		RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
 		RestAssured.port = port;

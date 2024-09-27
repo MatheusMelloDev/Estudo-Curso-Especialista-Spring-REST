@@ -13,6 +13,7 @@
 		</query>
 	</named-query>
 
+<<<<<<< HEAD
 	<named-query name="Restaurante.existsResponsavel">
 		<query>
 		select case when count(1) > 0 then true else false end
@@ -34,4 +35,6 @@
 		</query>
 	</named-query>
 	
+=======
+>>>>>>> a1905c0c77da4ea241fee2cea01d0cab7cfadcc6
 </entity-mappings>

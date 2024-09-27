@@ -1,6 +1,7 @@
 package com.algaworks.algafood.domain.model;
 
 import java.math.BigDecimal;
+<<<<<<< HEAD
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -18,10 +19,39 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+=======
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PositiveOrZero;
+import javax.validation.groups.ConvertGroup;
+import javax.validation.groups.Default;
+>>>>>>> a1905c0c77da4ea241fee2cea01d0cab7cfadcc6
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+<<<<<<< HEAD
+=======
+import com.algaworks.algafood.core.validation.Groups;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+>>>>>>> a1905c0c77da4ea241fee2cea01d0cab7cfadcc6
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -35,16 +65,32 @@ public class Restaurante {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+<<<<<<< HEAD
 	@Column(nullable = false)
 	private String nome;
 	
 	@Column(name = "taxa_frete", nullable = false)
 	private BigDecimal taxaFrete;
 	
+=======
+	@NotBlank
+	@Column(nullable = false)
+	private String nome;
+	
+	@NotNull
+	@PositiveOrZero
+	@Column(name = "taxa_frete", nullable = false)
+	private BigDecimal taxaFrete;
+	
+	@Valid
+	@ConvertGroup(from = Default.class, to = Groups.CozinhaId.class)
+	@NotNull
+>>>>>>> a1905c0c77da4ea241fee2cea01d0cab7cfadcc6
 	@ManyToOne
 	@JoinColumn(name = "cozinha_id", nullable = false)
 	private Cozinha cozinha;
 	
+<<<<<<< HEAD
 	@Embedded
 	private Endereco endereco;
 	
@@ -60,10 +106,28 @@ public class Restaurante {
 	@Column(nullable = false, columnDefinition = "datetime")
 	private OffsetDateTime dataAtualizacao;
 	
+=======
+	@JsonIgnore
+	@Embedded
+	private Endereco endereco;
+	
+	@JsonIgnore
+	@CreationTimestamp
+	@Column(nullable = false, columnDefinition = "datetime")
+	private LocalDateTime dataCadastro;
+	
+	@JsonIgnore
+	@UpdateTimestamp
+	@Column(nullable = false, columnDefinition = "datetime")
+	private LocalDateTime dataAtualizacao;
+	
+	@JsonIgnore
+>>>>>>> a1905c0c77da4ea241fee2cea01d0cab7cfadcc6
 	@ManyToMany
 	@JoinTable(name = "restaurante_forma_pagamento",
 			joinColumns = @JoinColumn(name = "restaurante_id"),
 			inverseJoinColumns = @JoinColumn(name = "forma_pagamento_id"))
+<<<<<<< HEAD
 	private Set<FormaPagamento> formasPagamento = new HashSet<>();
 	
 	@ManyToMany
@@ -147,4 +211,12 @@ public class Restaurante {
 		return getResponsaveis().add(usuario);
 	}
 	
+=======
+	private List<FormaPagamento> formasPagamento = new ArrayList<>();
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "restaurante")
+	private List<Produto> produtos = new ArrayList<>();
+	
+>>>>>>> a1905c0c77da4ea241fee2cea01d0cab7cfadcc6
 }

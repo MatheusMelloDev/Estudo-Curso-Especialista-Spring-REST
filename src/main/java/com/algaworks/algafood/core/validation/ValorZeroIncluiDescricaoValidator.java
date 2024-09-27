@@ -2,9 +2,15 @@ package com.algaworks.algafood.core.validation;
 
 import java.math.BigDecimal;
 
+<<<<<<< HEAD
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 import jakarta.validation.ValidationException;
+=======
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
+import javax.validation.ValidationException;
+>>>>>>> a1905c0c77da4ea241fee2cea01d0cab7cfadcc6
 
 import org.springframework.beans.BeanUtils;
 

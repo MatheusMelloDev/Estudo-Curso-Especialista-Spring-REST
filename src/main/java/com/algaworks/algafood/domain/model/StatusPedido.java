@@ -1,5 +1,6 @@
 package com.algaworks.algafood.domain.model;
 
+<<<<<<< HEAD
 import java.util.Arrays;
 import java.util.List;
 
@@ -30,4 +31,12 @@ public enum StatusPedido {
 		return !naoPodeAlterarPara(novoStatus);
 	}
 	
+=======
+public enum StatusPedido {
+
+	CRIADO,
+	CONFIRMADO,
+	ENTREGUE,
+	CANCELADO
+>>>>>>> a1905c0c77da4ea241fee2cea01d0cab7cfadcc6
 }

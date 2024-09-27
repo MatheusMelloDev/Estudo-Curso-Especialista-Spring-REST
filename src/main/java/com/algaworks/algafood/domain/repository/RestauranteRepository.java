@@ -32,6 +32,9 @@ public interface RestauranteRepository
 	
 	int countByCozinhaId(Long cozinha);
 	
+<<<<<<< HEAD
 	boolean existsResponsavel(Long restauranteId, Long usuarioId);
 	
+=======
+>>>>>>> a1905c0c77da4ea241fee2cea01d0cab7cfadcc6
 }

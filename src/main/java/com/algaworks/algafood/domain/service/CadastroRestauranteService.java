@@ -1,5 +1,6 @@
 package com.algaworks.algafood.domain.service;
 
+<<<<<<< HEAD
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,14 @@ import com.algaworks.algafood.domain.model.Cozinha;
 import com.algaworks.algafood.domain.model.FormaPagamento;
 import com.algaworks.algafood.domain.model.Restaurante;
 import com.algaworks.algafood.domain.model.Usuario;
+=======
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.algaworks.algafood.domain.exception.RestauranteNaoEncontradoException;
+import com.algaworks.algafood.domain.model.Cozinha;
+import com.algaworks.algafood.domain.model.Restaurante;
+>>>>>>> a1905c0c77da4ea241fee2cea01d0cab7cfadcc6
 import com.algaworks.algafood.domain.repository.RestauranteRepository;
 
 @Service
@@ -23,6 +32,7 @@ public class CadastroRestauranteService {
 	@Autowired
 	private CadastroCozinhaService cadastroCozinha;
 	
+<<<<<<< HEAD
 	@Autowired
 	private CadastroCidadeService cadastroCidade;
 	
@@ -42,10 +52,19 @@ public class CadastroRestauranteService {
 		
 		restaurante.setCozinha(cozinha);
 		restaurante.getEndereco().setCidade(cidade);
+=======
+	public Restaurante salvar(Restaurante restaurante) {
+		Long cozinhaId = restaurante.getCozinha().getId();
+		
+		Cozinha cozinha = cadastroCozinha.buscarOuFalhar(cozinhaId);
+		
+		restaurante.setCozinha(cozinha);
+>>>>>>> a1905c0c77da4ea241fee2cea01d0cab7cfadcc6
 		
 		return restauranteRepository.save(restaurante);
 	}
 	
+<<<<<<< HEAD
 	@Transactional
 	public void ativar(Long restauranteId) {
 		Restaurante restauranteAtual = buscarOuFalhar(restauranteId);
@@ -116,6 +135,8 @@ public class CadastroRestauranteService {
 		restaurante.adicionarResponsavel(usuario);
 	}
 	
+=======
+>>>>>>> a1905c0c77da4ea241fee2cea01d0cab7cfadcc6
 	public Restaurante buscarOuFalhar(Long restauranteId) {
 		return restauranteRepository.findById(restauranteId)
 			.orElseThrow(() -> new RestauranteNaoEncontradoException(restauranteId));
